@@ -42,11 +42,35 @@ class ViewController: UIViewController {
     
     // 3) 코드로 화면이동(다음화면이 코드로 작성되있을때만 가능)
     @IBAction func storyboardWithSegue(_ sender: UIButton) {
+        performSegue(withIdentifier: "toThirdVC", sender: self)
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toThirdVC" {
+            let third = segue.destination as! ThirdViewController //구체적으로 VC에 넣기
+            third.someString = "엄마상어"
+            
+        }
+        if segue.identifier == "toFourthVC" {
+            let fourth = segue.destination as! FourthViewController //구체적으로 VC에 넣기
+            fourth.someString = "뚜루루뚜루"
+            
+        }
         
+    }
+    //4번처럼 직접 연결 되어있는것만 가능(조건문 넣기)
+    var num = 3
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if num<5{
+            return true}
+        else{
+            return false}
     }
     // 4) 스토리보드에서 화면이동(간접 세그웨이)
     @IBAction func storyboardWithBtnSegue(_ sender: UIButton) {
+        
         
         
     }

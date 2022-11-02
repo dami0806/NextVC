@@ -9,12 +9,21 @@ import UIKit
 
 class ThirdViewController: UIViewController {
 
+    
+    @IBOutlet weak var mainLable: UILabel!
+    var someString : String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        mainLable.text = someString
    
     }
     
-
+    
+    
+    @IBAction func backBtnTapped(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 
 }
